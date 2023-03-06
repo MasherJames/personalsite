@@ -1,0 +1,16 @@
+{
+  "name": "personalsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "site:dev": "pnpm --filter site dev",
+    "storybook": "pnpm --filter ui storybook"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "scss": "^0.2.4"
+  }
+}
