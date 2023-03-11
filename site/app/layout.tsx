@@ -1,4 +1,5 @@
 import * as React from "react";
+import "styles/index.scss";
 
 export const metadata = {
   title: "Create Next App",

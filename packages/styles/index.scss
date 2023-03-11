@@ -1,0 +1,37 @@
+@use "mellow-scss" as *;
+
+$colors: (
+    light: (
+        "primary": [ "#69789e",
+        "#76879",
+        "#9ec6e9",
+        "#f3f1e9",
+        "#f3f1e9"],
+        "secondary": [ "#69789e",
+        "#76879",
+        "#9ec6e9",
+        "#f3f1e9",
+        "#f3f1e9"],
+    ),
+    dark: (
+        "primary": [ "#69789e",
+        "#76879",
+        "#9ec6e9",
+        "#f3f1e9",
+        "#f3f1e9"],
+        "secondary": [ "#69789e",
+        "#76879",
+        "#9ec6e9",
+        "#f3f1e9",
+        "#f3f1e9"],
+    ),
+);
+
+$color-setters: (x, y);
+
+$color-getters: (
+    c: "color",
+    b: "background",
+);
+
+@include main($colors: $colors, $color-setters: $color-setters, $color-getters: $color-getters);
