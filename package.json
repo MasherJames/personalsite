@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "site:dev": "pnpm --filter site dev",
-    "storybook": "pnpm --filter ui storybook"
+    "storybook": "pnpm --filter design-system storybook"
   },
   "keywords": [],
   "author": "",

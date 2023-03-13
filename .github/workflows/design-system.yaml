@@ -1,0 +1,22 @@
+name: 'Test design system and publish to chromatic'
+
+on:
+  push:
+    paths:
+      - "packages/design-system"
+
+jobs:
+  chromatic-deployment:
+   runs-on: ubuntu-latest
+
+   steps:
+      - uses: actions/checkout@v1
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Publish design system to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: packages/design-system
