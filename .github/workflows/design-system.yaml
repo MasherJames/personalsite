@@ -3,14 +3,35 @@ name: 'Test design system and publish to chromatic'
 on:
   push:
     paths:
-      - "packages/design-system"
+      - "packages/design-system/**"
+
+defaults:
+  run:
+    working-directory: packages/design-system
 
 jobs:
   chromatic-deployment:
    runs-on: ubuntu-latest
 
+   strategy:
+      matrix:
+        node-version: [18.x]
+
    steps:
-      - uses: actions/checkout@v1
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
@@ -20,3 +41,4 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: packages/design-system
+          exitZeroOnChanges: true # 👈 Option to prevent the workflow from failing
