@@ -32,7 +32,7 @@ export const Secondary: Story = {
 export const Large: Story = {
   args: {
     size: "large",
-    label: "New Button",
+    label: "Button",
   },
 };
 
