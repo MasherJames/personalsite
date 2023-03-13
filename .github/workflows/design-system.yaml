@@ -3,7 +3,11 @@ name: 'Test design system and publish to chromatic'
 on:
   push:
     paths:
-      - "packages/design-system"
+      - "packages/design-system/**"
+
+defaults:
+  run:
+    working-directory: packages/design-system
 
 jobs:
   chromatic-deployment:
@@ -19,4 +23,3 @@ jobs:
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: packages/design-system
