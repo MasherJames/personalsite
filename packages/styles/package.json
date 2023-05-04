@@ -7,6 +7,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mellow-scss": "^3.0.0"
+    "mellow-scss": "^3.0.1"
   }
 }

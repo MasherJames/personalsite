@@ -1,0 +1,37 @@
+$rotation: var(--rotation-deg);
+$counter-rotation: var(--counter-rotation-deg);
+$width: var(--width);
+$height: var(--height);
+
+.rotator {
+    height: #{$height};
+    width: #{$height};
+    position: relative;
+
+    &.rounded {
+        border-radius: 50%;
+
+        > * {
+            border-radius: 50%;
+        }
+    }
+
+    &.rotatechildren {
+        .childtarget {
+            transform: rotateZ(calc($rotation / 2));
+            // rotate: calc($rotation);
+        }
+    }
+
+    &.rotateparent {
+        transform: rotateZ(calc($rotation / 2));
+
+        .childtarget {
+            transform: rotateZ(calc($counter-rotation / 2));
+        }
+    }
+
+    &.rotateboth {
+        transform: rotateZ(calc($rotation / 2));
+    }
+}
