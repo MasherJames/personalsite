@@ -18,7 +18,8 @@ export const Base: Story = {
     height: "252px",
     viewBox: "0 0 276 252",
     targets: ["avatar"],
-    sprite: "/stories/assets/avatar-sprite.svg",
+    sprite: "/avatar-sprite.svg",
     strokeWidth: "2px",
+    color: "secondary",
   },
 };

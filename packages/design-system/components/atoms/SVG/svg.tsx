@@ -11,6 +11,7 @@ interface SVGProps extends Omit<IUseProps, "target"> {
   targets?: string[];
   children?: React.ReactNode;
   style?: React.CSSProperties;
+  color?: string;
 }
 
 const Svg = ({
@@ -24,12 +25,13 @@ const Svg = ({
   useClassName,
   preserveAspectRatio = "xMidYMid meet",
   style,
+  color,
   children,
   ...otherProps
 }: SVGProps) => {
   return (
     <svg
-      className={[className].filter(Boolean).join(" ")}
+      className={[color && `x-${color}`, className].filter(Boolean).join(" ")}
       width={width}
       height={height}
       viewBox={viewBox}
