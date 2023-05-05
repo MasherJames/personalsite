@@ -14,8 +14,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "."
   },
-  "include": ["stories", "components", "vite-env.d.ts"],
+  "include": ["stories", "./components/*", ".storybook", "vite-env.d.ts", "components/atoms/Button"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

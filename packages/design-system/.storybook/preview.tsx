@@ -1,11 +1,11 @@
+import * as React from "react";
 import type { Preview } from "@storybook/react";
+import { withThemeByClassName } from "@storybook/addon-styling";
+
 import "styles/index.scss";
 
 const preview: Preview = {
   parameters: {
-    backgrounds: {
-      default: "light",
-    },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
@@ -17,3 +17,13 @@ const preview: Preview = {
 };
 
 export default preview;
+
+export const decorators = [
+  withThemeByClassName({
+    themes: {
+      light: "light",
+      dark: "dark",
+    },
+    defaultTheme: "light",
+  }),
+];

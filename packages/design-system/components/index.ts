@@ -1,1 +1,2 @@
-export { Button } from "./button";
+export * from "./atoms";
+export * from "./organisms";
