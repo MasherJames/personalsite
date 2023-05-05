@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     "@storybook/addon-mdx-gfm",
     "@storybook/addon-styling",
   ],
+  staticDirs: ["../assets"],
   framework: {
     name: "@storybook/react-vite",
     options: {},

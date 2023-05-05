@@ -53,7 +53,7 @@ const WithHtmlElementWrapperTemplate = {
                 position: "sticky",
                 top: 0,
                 border: "2px solid var(--dark-accent)",
-                padding: ".5rem",
+                padding: "calc(var(--s-05) * 1rem)",
                 ...style,
               }}
               className={[className].filter(Boolean).join(" ")}
@@ -66,7 +66,7 @@ const WithHtmlElementWrapperTemplate = {
       >
         <img
           className="childtarget"
-          src="/stories/assets/profile.jpeg"
+          src="/profile.jpeg"
           style={{
             objectFit: "cover",
             borderRadius: "50%",
@@ -96,7 +96,7 @@ const WithImgWrapperTemplate: Story = {
               height="200"
               viewBox="0 0 276 252"
               targets={["avatar"]}
-              sprite="/stories/assets/avatar-sprite.svg"
+              sprite="/avatar-sprite.svg"
               strokeWidth="2px"
               className={[className].filter(Boolean).join(" ")}
               style={{
@@ -117,7 +117,7 @@ const WithImgWrapperTemplate: Story = {
               >
                 <img
                   className="childtarget"
-                  src="/stories/assets/profile.jpeg"
+                  src="/profile.jpeg"
                   style={{
                     objectFit: "cover",
                     borderRadius: "50%",

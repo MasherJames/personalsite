@@ -4,8 +4,8 @@ $width: var(--width);
 $height: var(--height);
 
 .rotator {
-    height: #{$height};
-    width: #{$height};
+    height: $height;
+    width: $height;
     position: relative;
 
     &.rounded {
@@ -18,20 +18,19 @@ $height: var(--height);
 
     &.rotatechildren {
         .childtarget {
-            transform: rotateZ(calc($rotation / 2));
-            // rotate: calc($rotation);
+            rotate: $rotation;
         }
     }
 
     &.rotateparent {
-        transform: rotateZ(calc($rotation / 2));
+        rotate: $rotation;
 
         .childtarget {
-            transform: rotateZ(calc($counter-rotation / 2));
+            rotate: $counter-rotation;
         }
     }
 
     &.rotateboth {
-        transform: rotateZ(calc($rotation / 2));
+        rotate: $rotation;
     }
 }
