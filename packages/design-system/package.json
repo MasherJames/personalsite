@@ -10,7 +10,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styles": "workspace:*"
+    "styles": "workspace:*",
+    "assets": "workspace:*"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.5",

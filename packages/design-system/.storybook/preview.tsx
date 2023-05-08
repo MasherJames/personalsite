@@ -3,6 +3,7 @@ import type { Preview } from "@storybook/react";
 import { withThemeByClassName } from "@storybook/addon-styling";
 
 import "styles/index.scss";
+import "../global.scss";
 
 const preview: Preview = {
   parameters: {

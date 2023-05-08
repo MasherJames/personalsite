@@ -2,19 +2,24 @@ const Home = () => {
   return (
     <main
       style={{
-        textAlign: "center",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "5rem",
       }}
     >
-      <h1 className="h1-0">Comming soon!!</h1>
+      <h1>This is the Home page to the personal site of mine!</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente ipsum
-        itaque a veniam recusandae. Quam nihil nostrum corporis eaque aperiam
-        veritatis perspiciatis possimus nam, architecto corrupti necessitatibus
-        reprehenderit alias id.
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae delectus
+        culpa, ab optio nam laudantium ipsa accusamus laboriosam earum dolorem?
+        Enim minus optio ullam voluptatum pariatur saepe necessitatibus adipisci
+        odio. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae
+        delectus culpa, ab optio nam laudantium ipsa accusamus laboriosam earum
+        dolorem? Enim minus optio ullam voluptatum pariatur saepe necessitatibus
+        adipisci odio.
       </p>
-      <div>
-        <button className="button">Button</button>
-      </div>
     </main>
   );
 };
