@@ -17,6 +17,6 @@
     "jsx": "react-jsx",
     "baseUrl": "."
   },
-  "include": ["stories", "./components/*", ".storybook", "vite-env.d.ts", "components/atoms/Button"],
+  "include": ["stories", "./components/*", ".storybook", "vite-env.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
