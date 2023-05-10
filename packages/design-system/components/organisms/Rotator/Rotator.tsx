@@ -73,7 +73,7 @@ const Rotator = ({
           "--counter-rotation-deg": `-${rotationDeg}deg`,
           ...(width ? { "--width": `${width}rem` } : {}),
           ...(height ? { "--height": `${height}rem` } : {}),
-          ...style,
+          ...(style ? style : {}),
         } as React.CSSProperties
       }
       {...otherProps}
