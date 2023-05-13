@@ -1,10 +1,9 @@
 import * as React from "react";
-import { useState, useEffect, useInsertionEffect } from "react";
+import { useState, useEffect, useRef, useInsertionEffect } from "react";
 
 interface DraggableElementProps {
   children: React.ReactNode;
   className?: string;
-  shouldSnap?: boolean;
   shouldRebound?: boolean;
   style?: React.CSSProperties;
 }
@@ -13,67 +12,62 @@ const DraggableElement = ({
   style,
   children,
   className,
-  shouldSnap,
   shouldRebound,
 }: DraggableElementProps) => {
   useInsertionEffect(() => {
     import("./styles.scss");
   }, []);
 
-  const [position, setPosition] = useState<{ left?: number; top?: number }>({});
+  const [shouldDrag, setShouldDrag] = useState(false);
+  const [position, setPosition] = useState({ left: 0, top: 0 });
+  const offsetRef = useRef({ offsetX: 0, offsetY: 0 });
+  const intialPositionRef = useRef({ left: 0, top: 0 });
 
-  const [originalElementPosition, setOriginalElementPosition] = useState<{
-    offsetLeft?: number;
-    offsetTop?: number;
-  }>({});
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!shouldDrag) return;
 
-  const [cusorPosition, setCusorPosition] = useState<{
-    clientX?: number;
-    clientY?: number;
-  }>({});
-
-  const handOnDragStart = (e: React.DragEvent) => {
-    const targetElement = e.target as HTMLDivElement;
-    const { offsetLeft, offsetTop } = targetElement;
-
-    setOriginalElementPosition({
-      offsetLeft: offsetLeft,
-      offsetTop: offsetTop,
-    });
-
-    setCusorPosition({
-      clientX: e.clientX,
-      clientY: e.clientY,
-    });
-  };
-
-  const handleDrag = (e: React.DragEvent) => {
-    const xpos = cusorPosition.clientX - e.clientX;
-    const ypos = cusorPosition.clientY - e.clientY;
-    const targetElement = e.target as HTMLDivElement;
-    const { offsetLeft, offsetTop } = targetElement;
-
-    setCusorPosition({
-      clientX: xpos,
-      clientY: ypos,
-    });
-    setPosition({
-      left: offsetLeft - xpos,
-      top: offsetTop - ypos,
-    });
-  };
-
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
-  };
-
-  const handleOnDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
-    if (shouldRebound) {
       setPosition({
-        left: originalElementPosition.offsetLeft,
-        top: originalElementPosition.offsetTop,
+        left: e.clientX - offsetRef.current.offsetX,
+        top: e.clientY - offsetRef.current.offsetY,
       });
+    };
+
+    const handleMouseUp = () => {
+      setShouldDrag(false);
+
+      if (shouldRebound) {
+        setPosition({
+          left: intialPositionRef.current.left,
+          top: intialPositionRef.current.top,
+        });
+      }
+    };
+
+    if (shouldDrag) {
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", handleMouseUp);
     }
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [shouldDrag]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShouldDrag(true);
+
+    const { offsetX, offsetY } = e.nativeEvent;
+
+    offsetRef.current.offsetX = offsetX;
+    offsetRef.current.offsetY = offsetY;
+
+    const target = e.target as HTMLDivElement;
+
+    intialPositionRef.current.left = target.offsetLeft;
+    intialPositionRef.current.top = target.offsetTop;
   };
 
   return (
@@ -81,16 +75,13 @@ const DraggableElement = ({
       className={["draggableelement", className].filter(Boolean).join(" ")}
       style={
         {
-          "--left": `${position.left}px`,
           "--top": `${position.top}px`,
+          "--left": `${position.left}px`,
+          "--cursor": shouldDrag ? "grabbing" : "grab",
           ...(style ? style : {}),
         } as React.CSSProperties
       }
-      onDragStart={handOnDragStart}
-      onDrag={handleDrag}
-      onDragOver={handleDragOver}
-      onDragEnd={handleOnDragEnd}
-      draggable
+      onMouseDown={handleMouseDown}
     >
       {children}
     </div>

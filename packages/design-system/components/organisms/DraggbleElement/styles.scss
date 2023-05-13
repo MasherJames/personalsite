@@ -1,5 +1,5 @@
 .draggableelement {
-    cursor: grab;
+    cursor: var(--cursor);
     position: absolute;
     left: var(--left);
     top: var(--top);
