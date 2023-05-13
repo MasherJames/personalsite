@@ -5,6 +5,7 @@ interface DraggableElementProps {
   children: React.ReactNode;
   className?: string;
   shouldRebound?: boolean;
+  shouldBounceOnRebound?: boolean;
   style?: React.CSSProperties;
 }
 
@@ -13,12 +14,14 @@ const DraggableElement = ({
   children,
   className,
   shouldRebound,
+  shouldBounceOnRebound,
 }: DraggableElementProps) => {
   useInsertionEffect(() => {
     import("./styles.scss");
   }, []);
 
   const [shouldDrag, setShouldDrag] = useState(false);
+  const [shouldAnimateOnRebound, setShouldAnimateOnRebound] = useState(false);
   const [position, setPosition] = useState({ left: 0, top: 0 });
   const offsetRef = useRef({ offsetX: 0, offsetY: 0 });
   const intialPositionRef = useRef({ left: 0, top: 0 });
@@ -41,6 +44,7 @@ const DraggableElement = ({
           left: intialPositionRef.current.left,
           top: intialPositionRef.current.top,
         });
+        setShouldAnimateOnRebound(true);
       }
     };
 
@@ -59,6 +63,10 @@ const DraggableElement = ({
     e.preventDefault();
     setShouldDrag(true);
 
+    if (shouldRebound) {
+      setShouldAnimateOnRebound(false);
+    }
+
     const { offsetX, offsetY } = e.nativeEvent;
 
     offsetRef.current.offsetX = offsetX;
@@ -72,7 +80,14 @@ const DraggableElement = ({
 
   return (
     <div
-      className={["draggableelement", className].filter(Boolean).join(" ")}
+      className={[
+        "draggableelement",
+        shouldAnimateOnRebound && "transition",
+        shouldAnimateOnRebound && shouldBounceOnRebound && "bounce",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
       style={
         {
           "--top": `${position.top}px`,

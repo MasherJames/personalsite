@@ -41,14 +41,20 @@ const DraggableElementTemplate: Story = {
 
 export const Snap: Story = {
   ...DraggableElementTemplate,
-  args: {
-    shouldSnap: true,
-  },
+  args: {},
 };
 
 export const Rebound: Story = {
   ...DraggableElementTemplate,
   args: {
     shouldRebound: true,
+  },
+};
+
+export const ReboundAndBounce: Story = {
+  ...DraggableElementTemplate,
+  args: {
+    ...Rebound.args,
+    shouldBounceOnRebound: true,
   },
 };
