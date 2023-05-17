@@ -1,5 +1,5 @@
-import * as React from "react";
-import { useState, useRef, useInsertionEffect } from "react";
+import * as React from 'react';
+import { useState, useRef, useInsertionEffect } from 'react';
 
 interface CursorFollowProps {
   children: React.ReactNode;
@@ -11,14 +11,16 @@ interface CursorFollowProps {
 
 const CursorFollow = ({
   children,
-  cursor = "pointer",
+  cursor = 'pointer',
   style,
   className,
   maximumTransformValue = 1.5,
 }: CursorFollowProps) => {
   useInsertionEffect(() => {
-    import("./styles.scss");
+    import('./styles.scss');
   }, []);
+
+  console.log('first');
 
   const targetMidPointsRef = useRef({ x: 0, y: 0 });
   const transformRateOfChangePerUnit = useRef({ x: 0, y: 0 });
@@ -41,6 +43,8 @@ const CursorFollow = ({
     transformRateOfChangePerUnit.current.y = yTransformRateOfChangePerUnit;
   };
 
+  console.log('James');
+
   const handleMouseMove = (e: React.MouseEvent) => {
     const { offsetX, offsetY } = e.nativeEvent;
 
@@ -61,12 +65,12 @@ const CursorFollow = ({
 
   return (
     <div
-      className={["cursorfollow", className].filter(Boolean).join(" ")}
+      className={['cursorfollow', className].filter(Boolean).join(' ')}
       style={
         {
-          "--cursor": cursor,
-          "--xtransform": `${transformValues.x}rem`,
-          "--ytransform": `${transformValues.y}rem`,
+          '--cursor': cursor,
+          '--xtransform': `${transformValues.x}rem`,
+          '--ytransform': `${transformValues.y}rem`,
           ...(style ? style : {}),
         } as React.CSSProperties
       }

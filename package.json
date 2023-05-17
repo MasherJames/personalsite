@@ -5,12 +5,19 @@
   "main": "index.js",
   "scripts": {
     "site:dev": "pnpm --filter site dev",
-    "storybook": "pnpm --filter design-system storybook"
+    "storybook": "pnpm --filter design-system storybook",
+    "ds:test:eslint": "pnpm --filter design-system test:eslint",
+    "ds:fix:eslint": "pnpm --filter design-system fix:eslint"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "sass": "^1.58.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "stylelint": "^15.6.2",
+    "stylelint-config-standard-scss": "^9.0.0"
   }
 }

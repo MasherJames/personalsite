@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { CursorFollow } from "components";
+import { CursorFollow } from 'components';
 
 const meta: Meta<typeof CursorFollow> = {
-  title: "Organisms/CursorFollow",
+  title: 'Organisms/CursorFollow',
   component: CursorFollow,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 };
 
@@ -17,16 +17,16 @@ export const Base: Story = {
     children: (
       <div
         style={{
-          background: "var(--secondary)",
-          color: "var(--light-primary)",
-          padding: "calc(var(--s-1) * 1rem)",
+          background: 'var(--secondary)',
+          color: 'var(--light-primary)',
+          padding: 'calc(var(--s-1) * 1rem)',
         }}
       >
         Hover on me!
       </div>
     ),
     style: {
-      width: "max-content",
+      width: 'max-content',
     },
   },
 };
