@@ -6,8 +6,8 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test:eslint": "eslint --ext .tsx,.ts ./",
-    "fix:eslint": "pnpm run test:eslint --fix"
+    "lint": "eslint --ext .tsx,.ts ./",
+    "lint:fix": "pnpm run lint --fix"
   },
   "dependencies": {
     "assets": "workspace:*",
