@@ -3,9 +3,7 @@
 @use 'variables' as *;
 
 $colors: $colors;
-
 $color-setters: $color-setters;
-
 $color-getters: $color-getters;
 
 @include main(

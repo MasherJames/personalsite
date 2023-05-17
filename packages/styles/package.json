@@ -8,7 +8,9 @@
     "license": "ISC",
     "scripts": {
         "prettier": "prettier --check \"./**/*.scss\"",
-        "prettier:fix": "prettier --write \"./**/*.scss\""
+        "prettier:fix": "prettier --write \"./**/*.scss\"",
+        "stylelint": "stylelint \"./**/*.scss\"",
+        "stylelint:fix": "stylelint --fix \"./**/*.scss\""
     },
     "dependencies": {
         "mellow-scss": "^3.0.3"

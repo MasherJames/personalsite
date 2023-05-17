@@ -6,13 +6,11 @@ $colors: (
     ),
     dark: (
         primary: [ #1a181f #6c6a73 #cdcad4 #e1e0e8],
-        secondary: [ #009900 #00cb00 #39ff14 #e1e0e8],
+        secondary: [ #090 #00cb00 #39ff14 #e1e0e8],
         accent: [ #bf00ff #de3cff #fd5eff #e1e0e8],
     ),
 );
-
 $color-setters: (x, y);
-
 $color-getters: (
     c: 'color',
     b: 'background',
