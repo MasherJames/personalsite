@@ -1,14 +1,14 @@
-import * as React from "react";
-import { useRef } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import * as React from 'react';
+import { useRef } from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Rotator, RotationScrollTarget, Svg } from "components";
-import Content from "../utils/Content";
+import { Rotator, RotationScrollTarget, Svg } from 'components';
+import Content from '../utils/Content';
 
 const meta: Meta<typeof Rotator> = {
-  title: "Organisms/Rotator",
+  title: 'Organisms/Rotator',
   component: Rotator,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 };
 
@@ -21,8 +21,8 @@ const ScrollWrapper = ({ ...args }) => {
   return (
     <div
       style={{
-        height: "800px",
-        overflow: "auto",
+        height: '800px',
+        overflow: 'auto',
       }}
       ref={ref}
     >
@@ -50,13 +50,13 @@ const WithHtmlElementWrapperTemplate = {
           return (
             <div
               style={{
-                position: "sticky",
+                position: 'sticky',
                 top: 0,
-                border: "2px solid var(--dark-accent)",
-                padding: "calc(var(--s-05) * 1rem)",
+                border: '2px solid var(--dark-accent)',
+                padding: 'calc(var(--s-05) * 1rem)',
                 ...style,
               }}
-              className={[className].filter(Boolean).join(" ")}
+              className={[className].filter(Boolean).join(' ')}
               {...rest}
             >
               {children}
@@ -68,11 +68,12 @@ const WithHtmlElementWrapperTemplate = {
           className="childtarget"
           src="/profile.jpeg"
           style={{
-            objectFit: "cover",
-            borderRadius: "50%",
-            width: "100%",
-            height: "100%",
+            objectFit: 'cover',
+            borderRadius: '50%',
+            width: '100%',
+            height: '100%',
           }}
+          alt="child target"
         />
       </ScrollWrapper>
     );
@@ -95,12 +96,12 @@ const WithImgWrapperTemplate: Story = {
               width="200"
               height="200"
               viewBox="0 0 276 252"
-              targets={["avatar"]}
+              targets={['avatar']}
               sprite="/avatar-sprite.svg"
               strokeWidth="2px"
-              className={[className].filter(Boolean).join(" ")}
+              className={[className].filter(Boolean).join(' ')}
               style={{
-                position: "sticky",
+                position: 'sticky',
                 top: 0,
                 ...style,
               }}
@@ -109,21 +110,22 @@ const WithImgWrapperTemplate: Story = {
                 width="200"
                 height="200"
                 style={{
-                  position: "absolute",
+                  position: 'absolute',
                   top: 0,
                   left: 0,
-                  translate: "calc(50% - 100px) calc(50% - 100px)",
+                  translate: 'calc(50% - 100px) calc(50% - 100px)',
                 }}
               >
                 <img
                   className="childtarget"
                   src="/profile.jpeg"
                   style={{
-                    objectFit: "cover",
-                    borderRadius: "50%",
-                    width: "100%",
-                    height: "100%",
+                    objectFit: 'cover',
+                    borderRadius: '50%',
+                    width: '100%',
+                    height: '100%',
                   }}
+                  alt="child target"
                 />
               </foreignObject>
             </Svg>

@@ -1,5 +1,5 @@
-import * as React from "react";
-import { useState, useEffect, useInsertionEffect } from "react";
+import * as React from 'react';
+import { useState, useEffect, useInsertionEffect } from 'react';
 
 export enum RotationScrollTarget {
   Children,
@@ -28,18 +28,19 @@ const Rotator = ({
   height,
   rounded,
   className,
-  Wrapper = "div",
+  Wrapper = 'div',
   children,
-  color = "accent",
+  color = 'accent',
   ...otherProps
 }: RotatorProps) => {
   useInsertionEffect(() => {
-    import("./styles.scss");
+    import('./styles.scss');
   }, []);
 
   const [rotationDeg, setRotationDeg] = useState<number | undefined>(0);
 
   useEffect(() => {
+    const currentScrollTarget = scrollTarget.current;
     const handleScroll = () => {
       const { scrollHeight, scrollTop } = scrollTarget?.current || {};
       if (scrollHeight && scrollTop) {
@@ -47,32 +48,32 @@ const Rotator = ({
         setRotationDeg(rotationDeg);
       }
     };
-    scrollTarget.current?.addEventListener("scroll", handleScroll);
+    currentScrollTarget?.addEventListener('scroll', handleScroll);
 
     return () => {
-      scrollTarget.current?.removeEventListener("scroll", handleScroll);
+      currentScrollTarget?.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [scrollTarget]);
 
   return (
     <Wrapper
       className={[
-        "rotator",
-        rounded && "rounded",
-        target === RotationScrollTarget.Children && "rotatechildren",
-        target === RotationScrollTarget.Parent && "rotateparent",
-        target === RotationScrollTarget.Rotator && "rotateboth",
+        'rotator',
+        rounded && 'rounded',
+        target === RotationScrollTarget.Children && 'rotatechildren',
+        target === RotationScrollTarget.Parent && 'rotateparent',
+        target === RotationScrollTarget.Rotator && 'rotateboth',
         `x-${color}`,
         className,
       ]
         .filter(Boolean)
-        .join(" ")}
+        .join(' ')}
       style={
         {
-          "--rotation-deg": `${rotationDeg}deg`,
-          "--counter-rotation-deg": `-${rotationDeg}deg`,
-          ...(width ? { "--width": `${width}rem` } : {}),
-          ...(height ? { "--height": `${height}rem` } : {}),
+          '--rotation-deg': `${rotationDeg}deg`,
+          '--counter-rotation-deg': `-${rotationDeg}deg`,
+          ...(width ? { '--width': `${width}rem` } : {}),
+          ...(height ? { '--height': `${height}rem` } : {}),
           ...(style ? style : {}),
         } as React.CSSProperties
       }

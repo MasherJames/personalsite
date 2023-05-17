@@ -1,5 +1,5 @@
-import * as React from "react";
-import { useState, useEffect, useRef, useInsertionEffect } from "react";
+import * as React from 'react';
+import { useState, useEffect, useRef, useInsertionEffect } from 'react';
 
 interface DraggableElementProps {
   children: React.ReactNode;
@@ -17,7 +17,7 @@ const DraggableElement = ({
   shouldBounceOnRebound,
 }: DraggableElementProps) => {
   useInsertionEffect(() => {
-    import("./styles.scss");
+    import('./styles.scss');
   }, []);
 
   const [shouldDrag, setShouldDrag] = useState(false);
@@ -49,15 +49,15 @@ const DraggableElement = ({
     };
 
     if (shouldDrag) {
-      document.addEventListener("mousemove", handleMouseMove);
-      document.addEventListener("mouseup", handleMouseUp);
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
     }
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [shouldDrag]);
+  }, [shouldDrag, shouldRebound]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -81,18 +81,18 @@ const DraggableElement = ({
   return (
     <div
       className={[
-        "draggableelement",
-        shouldAnimateOnRebound && "transition",
-        shouldAnimateOnRebound && shouldBounceOnRebound && "bounce",
+        'draggableelement',
+        shouldAnimateOnRebound && 'transition',
+        shouldAnimateOnRebound && shouldBounceOnRebound && 'bounce',
         className,
       ]
         .filter(Boolean)
-        .join(" ")}
+        .join(' ')}
       style={
         {
-          "--top": `${position.top}px`,
-          "--left": `${position.left}px`,
-          "--cursor": shouldDrag ? "grabbing" : "grab",
+          '--top': `${position.top}px`,
+          '--left': `${position.left}px`,
+          '--cursor': shouldDrag ? 'grabbing' : 'grab',
           ...(style ? style : {}),
         } as React.CSSProperties
       }
