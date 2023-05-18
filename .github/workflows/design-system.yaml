@@ -11,12 +11,9 @@ defaults:
 
 jobs:
   call-workflow-in-local-repo:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test
-        uses: ./.github/workflows/reusable-test.yaml
-        with:
-          workingDir: packages/design-system
+    uses: ./.github/workflows/reusable-test.yaml
+    with:
+      workingDir: ${{ github.workspace }}
 
   chromatic-deployment:
     runs-on: ubuntu-latest

@@ -2,6 +2,9 @@ name: Reusable Test WorkFlow
 
 on:
   workflow_call:
+    inputs:
+      workingDir:
+        type: string
 
 jobs:
   test:
