@@ -12,6 +12,8 @@ defaults:
 jobs:
   call-workflow-in-local-repo:
     uses: ./.github/workflows/reusable-test.yaml
+    with:
+      working-directory: packages/design-system
 
   chromatic-deployment:
     runs-on: ubuntu-latest
