@@ -12,12 +12,13 @@ defaults:
 jobs:
   call-workflow-in-local-repo:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/design-system
 
     steps:
       - name: Call reusable workflow
         uses: ./.github/workflows/reusable-test.yaml
-        with:
-          working_directory: packages/design-system
 
   chromatic-deployment:
     runs-on: ubuntu-latest

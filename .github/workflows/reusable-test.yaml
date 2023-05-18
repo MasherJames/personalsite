@@ -2,10 +2,6 @@ name: Reusable Test WorkFlow
 
 on:
   workflow_call:
-    inputs:
-      working_directory:
-        required: true
-        type: string
 
 jobs:
   test:
@@ -17,19 +13,15 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-        # uses: actions/checkout@v3
-        # with:
-        #   fetch-depth: 0
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: pnpm
-
-      - name: Set working directory
-        run: cd ${{ inputs.working_directory }}
 
       - uses: pnpm/action-setup@v2
         with:
