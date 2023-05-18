@@ -1,17 +1,17 @@
-name: "Run stylelint and prettier"
+name: "Test the site"
 
 on:
   push:
     paths:
-      - "packages/styles/**"
+      - "site/**"
 
 defaults:
   run:
-    working-directory: packages/styles
+    working-directory: site
 
 jobs:
   call-workflow-in-local-repo:
     name: Test
     uses: ./.github/workflows/reusable-test.yaml
     with:
-      project-folder: packages/styles
+      project-folder: site

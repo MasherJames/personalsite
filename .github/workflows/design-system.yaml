@@ -11,7 +11,7 @@ defaults:
 
 jobs:
   call-workflow-in-local-repo:
-    name: Resusable test workflow
+    name: Test
     uses: ./.github/workflows/reusable-test.yaml
     with:
       project-folder: packages/design-system
