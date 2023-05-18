@@ -1,13 +1,7 @@
-name: "Run stylelint and prettier"
+name: Reusable Test WorkFlow
 
 on:
-  push:
-    paths:
-      - "packages/styles/**"
-
-defaults:
-  run:
-    working-directory: packages/styles
+  workflow_call:
 
 jobs:
   test:
@@ -41,3 +35,6 @@ jobs:
 
       - name: Run Stylelint
         run: pnpm run stylelint
+
+      - name: Run Eslint
+        run: pnpm run lint
