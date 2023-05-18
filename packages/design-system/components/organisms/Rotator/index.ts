@@ -1,2 +1,2 @@
-export { default as Rotator } from "./Rotator";
-export { RotationScrollTarget } from "./Rotator";
+export { default as Rotator } from './Rotator';
+export { RotationScrollTarget } from './Rotator';

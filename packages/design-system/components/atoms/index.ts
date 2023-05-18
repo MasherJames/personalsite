@@ -1,2 +1,2 @@
-export { Button } from "./Button";
-export { Svg } from "./SVG";
+export { Button } from './Button';
+export { Svg } from './SVG';

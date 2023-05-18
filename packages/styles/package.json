@@ -1,12 +1,23 @@
 {
-  "name": "styles",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.scss",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "mellow-scss": "^3.0.3"
-  }
+    "name": "styles",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.scss",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "scripts": {
+        "prettier": "prettier --check \"./**/*.scss\"",
+        "prettier:fix": "prettier --write \"./**/*.scss\"",
+        "stylelint": "stylelint \"./**/*.scss\"",
+        "stylelint:fix": "stylelint --fix \"./**/*.scss\""
+    },
+    "dependencies": {
+        "mellow-scss": "^3.0.3"
+    },
+    "devDependencies": {
+        "eslint-config-prettier": "^8.8.0",
+        "prettier": "^2.8.8",
+        "stylelint-config-prettier": "^9.0.5"
+    }
 }

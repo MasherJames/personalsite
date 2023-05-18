@@ -1,1 +1,1 @@
-export { default as CursorFollow } from "./CursorFollow";
+export { default as CursorFollow } from './CursorFollow';

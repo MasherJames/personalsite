@@ -1,16 +1,37 @@
 {
-  "name": "personalsite",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "site:dev": "pnpm --filter site dev",
-    "storybook": "pnpm --filter design-system storybook"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "sass": "^1.58.3"
-  }
+    "name": "personalsite",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "site:dev": "pnpm --filter site dev",
+        "storybook": "pnpm --filter design-system storybook",
+        "ds:lint": "pnpm --filter design-system lint",
+        "ds:lint:fix": "pnpm --filter design-system lint:fix",
+        "ds:prettier": "pnpm --filter design-system prettier",
+        "ds:prettier:fix": "pnpm --filter design-system prettier:fix",
+        "ds:stylelint": "pnpm --filter design-system stylelint",
+        "ds:stylelint:fix": "pnpm --filter design-system stylelint:fix",
+        "site:lint": "pnpm --filter site lint",
+        "site:lint:fix": "pnpm --filter site lint:fix",
+        "site:prettier": "pnpm --filter site prettier",
+        "site:prettier:fix": "pnpm --filter site prettier:fix",
+        "site:stylelint": "pnpm --filter site stylelint",
+        "site:stylelint:fix": "pnpm --filter site stylelint:fix",
+        "styles:prettier": "pnpm --filter styles prettier",
+        "styles:prettier:fix": "pnpm --filter styles prettier:fix",
+        "styles:stylelint": "pnpm --filter styles stylelint",
+        "styles:stylelint:fix": "pnpm --filter styles stylelint:fix"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "sass": "^1.58.3"
+    },
+    "devDependencies": {
+        "prettier": "^2.8.8",
+        "stylelint": "^15.6.2",
+        "stylelint-config-standard-scss": "^9.0.0"
+    }
 }

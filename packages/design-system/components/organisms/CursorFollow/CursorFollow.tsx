@@ -1,82 +1,88 @@
-import * as React from "react";
-import { useState, useRef, useInsertionEffect } from "react";
+import * as React from 'react';
+import { useState, useRef, useInsertionEffect } from 'react';
 
 interface CursorFollowProps {
-  children: React.ReactNode;
-  cursor?: string;
-  style?: React.CSSProperties;
-  className?: string;
-  maximumTransformValue: number;
+    children: React.ReactNode;
+    cursor?: string;
+    style?: React.CSSProperties;
+    className?: string;
+    maximumTransformValue: number;
 }
 
 const CursorFollow = ({
-  children,
-  cursor = "pointer",
-  style,
-  className,
-  maximumTransformValue = 1.5,
+    children,
+    cursor = 'pointer',
+    style,
+    className,
+    maximumTransformValue = 1.5,
 }: CursorFollowProps) => {
-  useInsertionEffect(() => {
-    import("./styles.scss");
-  }, []);
+    useInsertionEffect(() => {
+        import('./styles.scss');
+    }, []);
 
-  const targetMidPointsRef = useRef({ x: 0, y: 0 });
-  const transformRateOfChangePerUnit = useRef({ x: 0, y: 0 });
-  const [transformValues, setTransformValues] = useState({ x: 0, y: 0 });
+    console.log('James');
 
-  const handleMouseEnter = (e: React.MouseEvent) => {
-    const target = e.target as HTMLDivElement;
-    const { height, width } = target.getBoundingClientRect();
+    const targetMidPointsRef = useRef({ x: 0, y: 0 });
+    const transformRateOfChangePerUnit = useRef({ x: 0, y: 0 });
+    const [transformValues, setTransformValues] = useState({ x: 0, y: 0 });
 
-    const xMidPoint = width / 2;
-    const yMidPoint = height / 2;
+    const handleMouseEnter = (e: React.MouseEvent) => {
+        const target = e.target as HTMLDivElement;
+        const { height, width } = target.getBoundingClientRect();
 
-    targetMidPointsRef.current.x = xMidPoint;
-    targetMidPointsRef.current.y = yMidPoint;
+        const xMidPoint = width / 2;
+        const yMidPoint = height / 2;
 
-    const xTransformRateOfChangePerUnit = (maximumTransformValue * 2) / width;
-    const yTransformRateOfChangePerUnit = (maximumTransformValue * 2) / height;
+        targetMidPointsRef.current.x = xMidPoint;
+        targetMidPointsRef.current.y = yMidPoint;
 
-    transformRateOfChangePerUnit.current.x = xTransformRateOfChangePerUnit;
-    transformRateOfChangePerUnit.current.y = yTransformRateOfChangePerUnit;
-  };
+        const xTransformRateOfChangePerUnit =
+            (maximumTransformValue * 2) / width;
+        const yTransformRateOfChangePerUnit =
+            (maximumTransformValue * 2) / height;
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const { offsetX, offsetY } = e.nativeEvent;
+        transformRateOfChangePerUnit.current.x = xTransformRateOfChangePerUnit;
+        transformRateOfChangePerUnit.current.y = yTransformRateOfChangePerUnit;
+    };
 
-    const xTranformValue =
-      (offsetX - targetMidPointsRef.current.x) *
-      transformRateOfChangePerUnit.current.x;
+    console.log('James');
 
-    const yTranformValue =
-      (offsetY - targetMidPointsRef.current.y) *
-      transformRateOfChangePerUnit.current.y;
+    const handleMouseMove = (e: React.MouseEvent) => {
+        const { offsetX, offsetY } = e.nativeEvent;
 
-    setTransformValues({ x: xTranformValue, y: yTranformValue });
-  };
+        const xTranformValue =
+            (offsetX - targetMidPointsRef.current.x) *
+            transformRateOfChangePerUnit.current.x;
 
-  const handleMouseLeave = (e: React.MouseEvent) => {
-    setTransformValues({ x: 0, y: 0 });
-  };
+        const yTranformValue =
+            (offsetY - targetMidPointsRef.current.y) *
+            transformRateOfChangePerUnit.current.y;
 
-  return (
-    <div
-      className={["cursorfollow", className].filter(Boolean).join(" ")}
-      style={
-        {
-          "--cursor": cursor,
-          "--xtransform": `${transformValues.x}rem`,
-          "--ytransform": `${transformValues.y}rem`,
-          ...(style ? style : {}),
-        } as React.CSSProperties
-      }
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      {children}
-    </div>
-  );
+        setTransformValues({ x: xTranformValue, y: yTranformValue });
+    };
+
+    const handleMouseLeave = (e: React.MouseEvent) => {
+        setTransformValues({ x: 0, y: 0 });
+    };
+
+    return (
+        <div
+            className={['cursorfollow', className].filter(Boolean).join(' ')}
+            style={
+                {
+                    '--cursor': cursor,
+                    '--xtransform': `${transformValues.x}rem`,
+                    '--ytransform': `${transformValues.y}rem`,
+                    ...(style ? style : {}),
+                } as React.CSSProperties
+            }
+            onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+            {children}
+        </div>
+    );
 };
 
 export default CursorFollow;
