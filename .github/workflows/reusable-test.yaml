@@ -2,9 +2,10 @@ name: Reusable Test WorkFlow
 
 on:
   workflow_call:
-    inputs:
-      workingDir:
-        type: string
+
+defaults:
+  run:
+    working-directory: packages/design-system
 
 jobs:
   test:
