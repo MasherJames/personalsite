@@ -14,11 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set working directory
-        run: echo "WORKING_DIRECTORY=${{ github.workspace }}" >> $GITHUB_ENV
-
       - name: Call reusable workflow
         uses: ./.github/workflows/reusable-test.yaml
+        with:
+          working_directory: packages/design-system
 
   chromatic-deployment:
     runs-on: ubuntu-latest

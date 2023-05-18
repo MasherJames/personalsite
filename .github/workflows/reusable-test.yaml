@@ -2,6 +2,10 @@ name: Reusable Test WorkFlow
 
 on:
   workflow_call:
+    inputs:
+      working_directory:
+        required: true
+        type: string
 
 jobs:
   test:
@@ -24,7 +28,7 @@ jobs:
           cache: pnpm
 
       - name: Set working directory
-        run: cd ${{ env.WORKING_DIRECTORY }}
+        run: cd ${{ inputs.working_directory }}
 
       - uses: pnpm/action-setup@v2
         with:
