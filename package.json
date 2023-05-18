@@ -21,7 +21,8 @@
         "styles:prettier": "pnpm --filter styles prettier",
         "styles:prettier:fix": "pnpm --filter styles prettier:fix",
         "styles:stylelint": "pnpm --filter styles stylelint",
-        "styles:stylelint:fix": "pnpm --filter styles stylelint:fix"
+        "styles:stylelint:fix": "pnpm --filter styles stylelint:fix",
+        "prepare": "husky install"
     },
     "keywords": [],
     "author": "",
@@ -30,6 +31,8 @@
         "sass": "^1.58.3"
     },
     "devDependencies": {
+        "husky": "^8.0.3",
+        "lint-staged": "^13.2.2",
         "prettier": "^2.8.8",
         "stylelint": "^15.6.2",
         "stylelint-config-standard-scss": "^9.0.0"

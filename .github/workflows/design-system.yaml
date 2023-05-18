@@ -1,4 +1,4 @@
-name: 'Test design system and publish to chromatic'
+name: "Test design system and publish to chromatic"
 
 on:
   push:
@@ -10,14 +10,20 @@ defaults:
     working-directory: packages/design-system
 
 jobs:
-  chromatic-deployment:
-   runs-on: ubuntu-latest
+  call-workflow-in-local-repo:
+    name: Test
+    uses: ./.github/workflows/reusable-test.yaml
+    with:
+      project-folder: packages/design-system
 
-   strategy:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+
+    strategy:
       matrix:
         node-version: [18.x]
 
-   steps:
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
@@ -31,7 +37,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install
