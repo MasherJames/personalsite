@@ -11,9 +11,14 @@ defaults:
 
 jobs:
   call-workflow-in-local-repo:
-    uses: ./.github/workflows/reusable-test.yaml
-    with:
-      working-directory: packages/design-system
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set working directory
+        run: echo "WORKING_DIRECTORY=${{ github.workspace }}" >> $GITHUB_ENV
+
+      - name: Call reusable workflow
+        uses: ./.github/workflows/reusable-test.yaml
 
   chromatic-deployment:
     runs-on: ubuntu-latest
