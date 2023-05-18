@@ -11,19 +11,19 @@ defaults:
 
 jobs:
   call-workflow-in-local-repo:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: packages/design-system
+    # runs-on: ubuntu-latest
+    # defaults:
+    #   run:
+    #     working-directory: packages/design-system
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+    # steps:
+    #   - name: Checkout
+    #     uses: actions/checkout@v3
+    #     with:
+    #       fetch-depth: 0
 
-      - name: Call reusable workflow
-        uses: ./.github/workflows/reusable-test.yaml
+    #   - name: Call reusable workflow
+    uses: ./.github/workflows/reusable-test.yaml
 
   chromatic-deployment:
     runs-on: ubuntu-latest
