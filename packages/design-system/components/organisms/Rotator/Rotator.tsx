@@ -37,7 +37,7 @@ const Rotator = ({
         import('./styles.scss');
     }, []);
 
-    const [rotationDeg, setRotationDeg] = useState<number | undefined>(0);
+    const [rotationDeg, setRotationDeg] = useState<number>(0);
 
     useEffect(() => {
         const currentScrollTarget = scrollTarget.current;
