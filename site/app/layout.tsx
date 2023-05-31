@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import '../node_modules/styles/index.scss';
 import '@/styles/globals.scss';
 import { redHatMono, agrandir } from '@/styles/fonts';
 

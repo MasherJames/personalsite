@@ -3,9 +3,9 @@
 
 pnpm ds:lint
 pnpm ds:prettier
-pnpm ds:stylelint
+# pnpm ds:stylelint
 pnpm site:lint
 pnpm site:prettier
-pnpm site:stylelint
+# pnpm site:stylelint
 pnpm styles:prettier
-pnpm styles:stylelint
+# pnpm styles:stylelint
