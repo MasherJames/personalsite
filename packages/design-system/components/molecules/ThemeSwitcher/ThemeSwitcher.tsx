@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useInsertionEffect } from 'react';
+import { useState, useEffect, useInsertionEffect } from 'react';
 
 import { Svg } from 'components';
 
@@ -9,6 +9,8 @@ interface ThemeSwitcherProps {
     className?: string;
     style?: React.CSSProperties;
 }
+
+const themeStorageKey = 'theme';
 
 const ThemeSwitcher = ({
     sunColor = 'secondary',
@@ -23,8 +25,52 @@ const ThemeSwitcher = ({
 
     const [theme, setTheme] = useState('light');
 
+    useEffect(() => {
+        const getColorPreference = () => {
+            const themeFromLocalStorage = localStorage.getItem(themeStorageKey);
+            if (themeFromLocalStorage) {
+                return themeFromLocalStorage;
+            } else {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches
+                    ? 'dark'
+                    : 'light';
+            }
+        };
+        setTheme(getColorPreference());
+    }, []);
+
+    useEffect(() => {
+        const { firstElementChild } = document;
+
+        if (firstElementChild) {
+            firstElementChild.setAttribute('class', theme);
+        }
+    }, [theme]);
+
+    useEffect(() => {
+        const handleSystemPreferenceChange = ({
+            matches: isDark,
+        }: MediaQueryListEvent) => {
+            const systemPreferedTheme = isDark ? 'dark' : 'light';
+            localStorage.setItem(themeStorageKey, systemPreferedTheme);
+            setTheme(systemPreferedTheme);
+        };
+
+        window
+            .matchMedia('(prefers-color-scheme: dark)')
+            .addEventListener('change', handleSystemPreferenceChange);
+
+        return () => {
+            window
+                .matchMedia('(prefers-color-scheme: dark)')
+                .removeEventListener('change', handleSystemPreferenceChange);
+        };
+    }, []);
+
     const handleThemeChange = () => {
-        setTheme(() => (theme === 'light' ? 'dark' : 'light'));
+        const currentTheme = theme === 'light' ? 'dark' : 'light';
+        localStorage.setItem(themeStorageKey, currentTheme);
+        setTheme(currentTheme);
     };
 
     return (

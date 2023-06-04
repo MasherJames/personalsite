@@ -1,21 +1,14 @@
 .themeswitcher {
-    --size: 2rem;
-
     border: 0;
     background: none;
     cursor: pointer;
-    // position: relative;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    inline-size: 3rem;
-    block-size: 3rem;
 
     > * {
-        // position: absolute;
-        inline-size: 100%;
-        block-size: 100%;
-
+        position: absolute;
         transition: 1s ease;
         rotate: 0;
         scale: 0;
