@@ -1,0 +1,28 @@
+.themeswitcher {
+    --size: 2rem;
+
+    border: 0;
+    background: none;
+    cursor: pointer;
+    // position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inline-size: 3rem;
+    block-size: 3rem;
+
+    > * {
+        // position: absolute;
+        inline-size: 100%;
+        block-size: 100%;
+
+        transition: 1s ease;
+        rotate: 0;
+        scale: 0;
+    }
+
+    .active {
+        rotate: 360deg;
+        scale: 1.2;
+    }
+}

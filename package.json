@@ -25,7 +25,7 @@
         "stylelint": "pnpm run ds:stylelint && pnpm run site:stylelint && pnpm run styles:stylelint",
         "stylelint:fix": "pnpm run ds:stylelint:fix && pnpm run styles:prettier:fix && pnpm run styles:stylelint:fix",
         "prettier": "pnpm run ds:prettier && pnpm run site:prettier && pnpm run styles:prettier",
-        "prettier:fix": "pnpm run ds:prettier:fix && pnpm run styles:prettier:fix && pnpm run styles:prettier:fix",
+        "prettier:fix": "pnpm run ds:prettier:fix && pnpm run site:prettier:fix && pnpm run styles:prettier:fix",
         "prepare": "husky install"
     },
     "keywords": [],

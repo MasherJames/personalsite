@@ -23,3 +23,15 @@ export const Base: Story = {
         color: 'secondary',
     },
 };
+
+export const ThemeingIcons: Story = {
+    args: {
+        width: '40px',
+        height: '40px',
+        viewBox: '0 0 24 24',
+        targets: ['light'],
+        sprite: '/test.svg',
+        strokeWidth: '2px',
+        color: 'secondary',
+    },
+};
