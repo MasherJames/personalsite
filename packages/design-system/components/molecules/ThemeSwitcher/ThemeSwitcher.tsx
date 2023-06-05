@@ -8,6 +8,9 @@ interface ThemeSwitcherProps {
     moonColor?: string;
     className?: string;
     style?: React.CSSProperties;
+    sprite: string;
+    darkTarget?: string;
+    lightTarget?: string;
 }
 
 const themeStorageKey = 'theme';
@@ -16,6 +19,9 @@ const ThemeSwitcher = ({
     sunColor = 'secondary',
     moonColor = 'accent1',
     className,
+    sprite,
+    darkTarget = 'dark',
+    lightTarget = 'light',
     style,
     ...otherProps
 }: ThemeSwitcherProps) => {
@@ -85,8 +91,8 @@ const ThemeSwitcher = ({
                 width="24px"
                 height="24px"
                 viewBox="0 0 24 24"
-                targets={['light']}
-                sprite="/test.svg"
+                targets={[lightTarget]}
+                sprite={sprite}
                 strokeWidth="2px"
                 color={sunColor}
             />
@@ -95,8 +101,8 @@ const ThemeSwitcher = ({
                 width="24px"
                 height="24px"
                 viewBox="0 0 24 24"
-                targets={['dark']}
-                sprite="/test.svg"
+                targets={[darkTarget]}
+                sprite={sprite}
                 strokeWidth="2px"
                 color={moonColor}
             />
