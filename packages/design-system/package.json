@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build -s ./assets,./node_modules/assets/icons,./node_modules/assets/images,./node_modules/assets/fonts",
+        "build-storybook": "storybook build",
         "lint": "eslint --ext .tsx,.ts ./",
         "lint:fix": "pnpm run lint --fix",
         "prettier": "prettier --check \"./**/*.{ts,tsx,scss}\"",
