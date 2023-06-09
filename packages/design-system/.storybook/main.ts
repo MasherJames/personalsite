@@ -14,9 +14,9 @@ const config: StorybookConfig = {
     // Trigger
     staticDirs: [
         '../assets',
-        '../node_modules/assets/icons',
-        '../node_modules/assets/fonts',
-        '../node_modules/assets/images',
+        '../../../node_modules/assets/icons',
+        '../../../node_modules/assets/fonts',
+        '../../../node_modules/assets/images',
     ],
     framework: {
         name: '@storybook/react-vite',

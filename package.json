@@ -32,7 +32,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "sass": "^1.58.3"
+        "sass": "^1.58.3",
+        "assets": "workspace:*"
     },
     "devDependencies": {
         "husky": "^8.0.3",
