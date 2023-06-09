@@ -11,7 +11,12 @@ const config: StorybookConfig = {
         '@storybook/addon-mdx-gfm',
         '@storybook/addon-styling',
     ],
-    staticDirs: ['../assets'],
+    // Trigger
+    staticDirs: [
+        '../assets',
+        '../node_modules/assets/icons',
+        '../node_modules/assets/fonts',
+    ],
     framework: {
         name: '@storybook/react-vite',
         options: {},

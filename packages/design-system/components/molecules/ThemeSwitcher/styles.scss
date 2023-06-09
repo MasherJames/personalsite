@@ -1,0 +1,21 @@
+.themeswitcher {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > * {
+        position: absolute;
+        transition: 1s ease;
+        rotate: 0;
+        scale: 0;
+    }
+
+    .active {
+        rotate: 360deg;
+        scale: 1.2;
+    }
+}
