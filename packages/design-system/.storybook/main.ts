@@ -11,6 +11,7 @@ const config: StorybookConfig = {
         '@storybook/addon-mdx-gfm',
         '@storybook/addon-styling',
     ],
+    // Trigger
     staticDirs: [
         '../assets',
         '../node_modules/assets/icons',
