@@ -4,9 +4,6 @@ importers:
 
   .:
     dependencies:
-      assets:
-        specifier: workspace:*
-        version: link:packages/assets
       sass:
         specifier: ^1.58.3
         version: 1.58.3
@@ -31,6 +28,9 @@ importers:
 
   packages/design-system:
     dependencies:
+      assets:
+        specifier: workspace:*
+        version: link:../assets
       react:
         specifier: ^18.2.0
         version: 18.2.0
