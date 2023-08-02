@@ -96,12 +96,6 @@ importers:
       storybook:
         specifier: ^7.2.0
         version: 7.2.0
-      stylelint:
-        specifier: ^15.6.2
-        version: 15.6.2
-      stylelint-config-site:
-        specifier: workspace:*
-        version: link:../../guardrails/stylelint-config-site
       ts-config-site:
         specifier: workspace:*
         version: link:../../guardrails/ts-config-site
