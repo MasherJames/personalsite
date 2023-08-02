@@ -1,8 +1,8 @@
 .draggableelement {
-    cursor: var(--cursor);
     position: absolute;
-    left: var(--left);
     top: var(--top);
+    left: var(--left);
+    cursor: var(--cursor);
 
     &.transition {
         transition:

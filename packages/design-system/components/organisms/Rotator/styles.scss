@@ -4,9 +4,9 @@ $width: var(--width);
 $height: var(--height);
 
 .rotator {
-    height: $height;
-    width: $height;
     position: relative;
+    width: $height;
+    height: $height;
 
     &.rounded {
         border-radius: 50%;
