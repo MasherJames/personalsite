@@ -197,7 +197,14 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
 
-  guardrails/stylelint-config-site: {}
+  guardrails/stylelint-config-site:
+    devDependencies:
+      stylelint:
+        specifier: ^15.6.2
+        version: 15.6.2
+      stylelint-config-standard-scss:
+        specifier: ^10.0.0
+        version: 10.0.0(postcss@8.4.24)(stylelint@15.6.2)
 
   guardrails/ts-config-site: {}
 

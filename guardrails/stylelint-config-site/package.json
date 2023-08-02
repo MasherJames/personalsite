@@ -5,5 +5,9 @@
     "main": "./.stylelintrc.json",
     "keywords": [],
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "stylelint": "^15.6.2",
+        "stylelint-config-standard-scss": "^10.0.0"
+    }
 }
