@@ -1,0 +1,17 @@
+name: 'Test the site'
+
+on:
+    push:
+        paths:
+            - 'site/**'
+
+defaults:
+    run:
+        working-directory: site
+
+jobs:
+    call-workflow-in-local-repo:
+        name: Test
+        uses: ./.github/workflows/reusable-test.yaml
+        with:
+            project-folder: site

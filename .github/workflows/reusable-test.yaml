@@ -41,6 +41,7 @@ jobs:
               run: pnpm run prettier
 
             - name: Run Stylelint
+              if: ${{ inputs.project-folder != 'apps/docs' }}
               run: pnpm run stylelint
 
             - name: Run Eslint
