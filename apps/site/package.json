@@ -10,8 +10,8 @@
         "lint:fix": "next lint --fix",
         "prettier": "prettier --check \"./**/*.{ts,tsx,scss}\"",
         "prettier:fix": "prettier --write \"./**/*.{ts,tsx,scss}\"",
-        "stylelint": "stylelint \"./**/*.scss\"",
-        "stylelint:fix": "stylelint --fix \"./**/*.scss\""
+        "stylelint": "stylelint \"**/*.scss\"",
+        "stylelint:fix": "stylelint --fix \"**/*.scss\""
     },
     "dependencies": {
         "@types/node": "20.1.0",

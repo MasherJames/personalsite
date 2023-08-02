@@ -9,8 +9,8 @@
     "scripts": {
         "prettier": "prettier --check \"./**/*.scss\"",
         "prettier:fix": "prettier --write \"./**/*.scss\"",
-        "stylelint": "stylelint \"./**/*.scss\"",
-        "stylelint:fix": "stylelint --fix \"./**/*.scss\""
+        "stylelint": "stylelint \"**/*.scss\"",
+        "stylelint:fix": "stylelint --fix \"**/*.scss\""
     },
     "dependencies": {
         "mellow-scss": "^4.0.0"

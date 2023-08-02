@@ -40,6 +40,10 @@ jobs:
             - name: Run Prettier
               run: pnpm run prettier
 
+            - name: Run Stylelint
+              if: ${{ inputs.project-folder != 'apps/docs' }}
+              run: pnpm run stylelint
+
             - name: Run Eslint
               if: ${{ inputs.project-folder != 'packages/styles' }}
               run: pnpm run lint
