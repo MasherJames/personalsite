@@ -14,6 +14,9 @@ importers:
       lint-staged:
         specifier: ^13.2.2
         version: 13.2.2
+      stylelint-config-recess-order:
+        specifier: ^4.3.0
+        version: 4.3.0(stylelint@15.6.2)
       turbo:
         specifier: ^1.10.12
         version: 1.10.12
