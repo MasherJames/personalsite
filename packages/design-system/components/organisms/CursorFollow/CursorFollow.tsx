@@ -20,8 +20,6 @@ const CursorFollow = ({
         import('./styles.scss');
     }, []);
 
-    console.log('James');
-
     const targetMidPointsRef = useRef({ x: 0, y: 0 });
     const transformRateOfChangePerUnit = useRef({ x: 0, y: 0 });
     const [transformValues, setTransformValues] = useState({ x: 0, y: 0 });
@@ -44,8 +42,6 @@ const CursorFollow = ({
         transformRateOfChangePerUnit.current.x = xTransformRateOfChangePerUnit;
         transformRateOfChangePerUnit.current.y = yTransformRateOfChangePerUnit;
     };
-
-    console.log('James');
 
     const handleMouseMove = (e: React.MouseEvent) => {
         const { offsetX, offsetY } = e.nativeEvent;

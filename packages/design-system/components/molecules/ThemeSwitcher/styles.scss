@@ -1,11 +1,11 @@
 .themeswitcher {
-    border: 0;
-    background: none;
-    cursor: pointer;
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: none;
+    border: 0;
 
     > * {
         position: absolute;

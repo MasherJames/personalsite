@@ -1,4 +1,4 @@
 packages:
-  - 'packages/*'
-  - 'site'
-
+  - "packages/*"
+  - "apps/*"
+  - "guardrails/*"

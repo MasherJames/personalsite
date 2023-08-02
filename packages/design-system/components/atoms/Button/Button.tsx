@@ -46,7 +46,7 @@ const Button = ({
             type="button"
             className={[
                 'storybook-button',
-                `storybook-button--${size}`,
+                'storybook-button-medium',
                 mode,
             ].join(' ')}
             style={{ backgroundColor }}
