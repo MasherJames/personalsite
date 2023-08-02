@@ -35,8 +35,6 @@ $colors: (
         accent: [ #bf00ff #de3cff #fd5eff #e1e0e8],
     ),
 );
-
-// set and get color variables
 $color-setters: (x, y);
 $color-getters: (
     c: 'color',
