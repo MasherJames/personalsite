@@ -352,7 +352,6 @@ const Content = () => {
             nulla reiciendis error eius similique ullam deserunt reprehenderit
             adipisci numquam porro quibusdam. Quo earum, quas eum repellendus
             possimus odio hic tenetur eaque omnis, atque expedita? Harum,
-            inventore accusantium?
         </div>
     );
 };
