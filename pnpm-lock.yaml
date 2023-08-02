@@ -160,6 +160,9 @@ importers:
       stylelint-config-site:
         specifier: workspace:*
         version: link:../../guardrails/stylelint-config-site
+      stylelint-config-standard-scss:
+        specifier: ^10.0.0
+        version: 10.0.0(postcss@8.4.24)(stylelint@15.6.2)
       ts-config-site:
         specifier: workspace:*
         version: link:../../guardrails/ts-config-site
@@ -242,6 +245,9 @@ importers:
       stylelint-config-site:
         specifier: workspace:*
         version: link:../../guardrails/stylelint-config-site
+      stylelint-config-standard-scss:
+        specifier: ^10.0.0
+        version: 10.0.0(postcss@8.4.24)(stylelint@15.6.2)
       ts-config-site:
         specifier: workspace:*
         version: link:../../guardrails/ts-config-site

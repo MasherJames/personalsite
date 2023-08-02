@@ -21,4 +21,4 @@ export const Primary: Story = {
     },
 };
 
-// Btn
+// Btns
