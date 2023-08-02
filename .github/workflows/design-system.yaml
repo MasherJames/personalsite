@@ -1,4 +1,4 @@
-name: 'Run stylelint and prettier'
+name: 'Design System: Run eslint, stylelint and prettier'
 
 on:
     push:

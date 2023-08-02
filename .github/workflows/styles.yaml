@@ -1,17 +1,17 @@
-name: "Run stylelint and prettier"
+name: 'Styles: Run eslint, stylelint and prettier'
 
 on:
-  push:
-    paths:
-      - "packages/styles/**"
+    push:
+        paths:
+            - 'packages/styles/**'
 
 defaults:
-  run:
-    working-directory: packages/styles
+    run:
+        working-directory: packages/styles
 
 jobs:
-  call-workflow-in-local-repo:
-    name: Test
-    uses: ./.github/workflows/reusable-test.yaml
-    with:
-      project-folder: packages/styles
+    call-workflow-in-local-repo:
+        name: Test
+        uses: ./.github/workflows/reusable-test.yaml
+        with:
+            project-folder: packages/styles

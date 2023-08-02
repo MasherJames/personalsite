@@ -1,4 +1,4 @@
-name: 'Test design system docs and publish to chromatic'
+name: 'Docs: Run eslint and pretier and publish to chromatic'
 
 on:
     push:

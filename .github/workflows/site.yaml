@@ -1,4 +1,4 @@
-name: 'Test the site'
+name: 'Site: Run eslint, stylelint and prettier'
 
 on:
     push:
