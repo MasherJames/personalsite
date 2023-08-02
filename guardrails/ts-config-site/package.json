@@ -1,0 +1,6 @@
+{
+    "name": "ts-config-site",
+    "version": "1.0.0",
+    "description": "The typescript config for the apps and packages",
+    "license": "ISC"
+}

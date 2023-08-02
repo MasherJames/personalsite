@@ -1,11 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-pnpm ds:lint
-pnpm ds:prettier
-# pnpm ds:stylelint
-pnpm site:lint
-pnpm site:prettier
-# pnpm site:stylelint
-pnpm styles:prettier
-# pnpm styles:stylelint
+pnpm run lint
+pnpm run prettier
+pnpm run stylelint

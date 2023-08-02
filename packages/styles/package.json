@@ -16,8 +16,10 @@
         "mellow-scss": "^4.0.0"
     },
     "devDependencies": {
-        "eslint-config-prettier": "^8.8.0",
-        "prettier": "^2.8.8",
-        "stylelint-config-prettier": "^9.0.5"
+        "prettier": "^3.0.0",
+        "sass": "^1.63.6",
+        "stylelint": "^15.6.2",
+        "stylelint-config-site": "workspace:*",
+        "stylelint-config-standard-scss": "^10.0.0"
     }
 }

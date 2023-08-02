@@ -1,0 +1,9 @@
+{
+    "name": "stylelint-config-site",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./.stylelintrc.json",
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useState, useEffect, useInsertionEffect } from 'react';
 
-import { Svg } from 'components';
+import { Svg } from '../../atoms';
 
-interface ThemeSwitcherProps {
+export interface ThemeSwitcherProps {
     sunColor?: string;
     moonColor?: string;
     className?: string;
@@ -14,6 +14,11 @@ interface ThemeSwitcherProps {
 }
 
 const themeStorageKey = 'theme';
+
+enum ThemeOptions {
+    LIGHT = 'light',
+    DARK = 'dark',
+}
 
 const ThemeSwitcher = ({
     sunColor = 'secondary',
@@ -29,17 +34,19 @@ const ThemeSwitcher = ({
         import('./styles.scss');
     }, []);
 
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState(ThemeOptions.LIGHT);
 
     useEffect(() => {
         const getColorPreference = () => {
-            const themeFromLocalStorage = localStorage.getItem(themeStorageKey);
+            const themeFromLocalStorage = localStorage.getItem(
+                themeStorageKey,
+            ) as ThemeOptions;
             if (themeFromLocalStorage) {
                 return themeFromLocalStorage;
             } else {
                 return window.matchMedia('(prefers-color-scheme: dark)').matches
-                    ? 'dark'
-                    : 'light';
+                    ? ThemeOptions.DARK
+                    : ThemeOptions.LIGHT;
             }
         };
         setTheme(getColorPreference());
@@ -48,8 +55,16 @@ const ThemeSwitcher = ({
     useEffect(() => {
         const { firstElementChild } = document;
 
-        if (firstElementChild) {
-            firstElementChild.setAttribute('class', theme);
+        const oldTheme =
+            theme === ThemeOptions.LIGHT
+                ? ThemeOptions.DARK
+                : ThemeOptions.LIGHT;
+
+        if (firstElementChild?.classList.contains(oldTheme)) {
+            firstElementChild.classList.remove(oldTheme);
+            firstElementChild.classList.add(theme);
+        } else {
+            firstElementChild?.classList.add(theme);
         }
     }, [theme]);
 
@@ -57,7 +72,10 @@ const ThemeSwitcher = ({
         const handleSystemPreferenceChange = ({
             matches: isDark,
         }: MediaQueryListEvent) => {
-            const systemPreferedTheme = isDark ? 'dark' : 'light';
+            const systemPreferedTheme = isDark
+                ? ThemeOptions.DARK
+                : ThemeOptions.LIGHT;
+
             localStorage.setItem(themeStorageKey, systemPreferedTheme);
             setTheme(systemPreferedTheme);
         };
@@ -74,7 +92,10 @@ const ThemeSwitcher = ({
     }, []);
 
     const handleThemeChange = () => {
-        const currentTheme = theme === 'light' ? 'dark' : 'light';
+        const currentTheme =
+            theme === ThemeOptions.LIGHT
+                ? ThemeOptions.DARK
+                : ThemeOptions.LIGHT;
         localStorage.setItem(themeStorageKey, currentTheme);
         setTheme(currentTheme);
     };

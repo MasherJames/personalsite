@@ -1,50 +1,50 @@
-name: "Test design system and publish to chromatic"
+name: 'Test design system and publish to chromatic'
 
 on:
-  push:
-    paths:
-      - "packages/design-system/**"
+    push:
+        paths:
+            - 'packages/design-system/**'
 
 defaults:
-  run:
-    working-directory: packages/design-system
+    run:
+        working-directory: packages/design-system
 
 jobs:
-  call-workflow-in-local-repo:
-    name: Test
-    uses: ./.github/workflows/reusable-test.yaml
-    with:
-      project-folder: packages/design-system
-
-  chromatic-deployment:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    call-workflow-in-local-repo:
+        name: Test
+        uses: ./.github/workflows/reusable-test.yaml
         with:
-          fetch-depth: 0
+            project-folder: packages/design-system
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 7
+    chromatic-deployment:
+        runs-on: ubuntu-latest
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+        strategy:
+            matrix:
+                node-version: [18.x]
 
-      - name: Install dependencies
-        run: pnpm install
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0
 
-      - name: Publish design system to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: packages/design-system
-          exitZeroOnChanges: true # 👈 Option to prevent the workflow from failing
+            - uses: pnpm/action-setup@v2
+              with:
+                  version: 7
+
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Publish design system to Chromatic
+              uses: chromaui/action@v1
+              with:
+                  projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+                  workingDir: packages/design-system
+                  exitZeroOnChanges: true # 👈 Option to prevent the workflow from failing

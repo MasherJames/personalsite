@@ -13,6 +13,7 @@ node_modules/
 
 # production
 /build
+dist/
 
 # misc
 .vscode/
@@ -33,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Turborepo
+.turbo
+
+# Storybook
+storybook-static/
